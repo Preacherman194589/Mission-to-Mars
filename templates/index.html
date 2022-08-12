@@ -11,12 +11,21 @@
     />
   </head>
   <body>
-    <div class="container">
+    <div class="container-fluid">
+        ...
+      </div>
+    <!-- Columns start at 50% wide on mobile and bump up to 33.3% wide on desktop -->
+    <div class="row">
+      <div class="col-xs-6 col-md-4"></div>.
+      <div class="col-xs-6 col-md-4"></div>
+      <div class="col-xs-6 col-md-4"></div>
+    </div>    
       <!-- Add Jumbotron to Header -->
       <div class="jumbotron text-center">
         <h1>Mission to Mars</h1>
         <!-- Add a button to activate scraping script -->
-        <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape New Data</a></p>
+        <button type="button" class="btn btn-primary btn-lg active" href="/scrape" role="button">Scrape New Data</button>
+        <!--<p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape New Data</a></p>--->
       </div>
 
       <!-- Add section for Mars News -->
@@ -33,7 +42,6 @@
       </div>
 
       <!-- Section for Featured Image and Facts table -->
-     
       <div class="row" id="mars-featured-image">
         <div class="col-md-8">
           <h2>Featured Mars Image</h2>
@@ -45,7 +53,6 @@
             alt="Responsive image"
           />
         </div>
-
         <div class="col-md-4">
           <!-- Mars Facts -->
           <div class="row" id="mars-facts">
@@ -64,7 +71,7 @@
         {% for hemisphere in mars.hemispheres %}
         <div class="col-md-6">
           <div class="thumbnail">
-            <img src="{{hemisphere.img_url | default('static/images/error.png', true)}}" alt="...">
+            <img src="{{hemisphere.img_url | default('static/images/error.png', true)}}" alt="..." class="img-circle">
             <div class="caption">
               <h3>{{hemisphere.title}}</h3>
             </div>
